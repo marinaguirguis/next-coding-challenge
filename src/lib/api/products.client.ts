@@ -1,5 +1,5 @@
 import useSWR from 'swr';
-import { Product } from '@/lib/api/typs';
+import { Product } from '@/lib/api/types';
 import { apiConfig } from '@/lib/api/config';
 
 const BASE_URL = apiConfig.clientBaseUrl;

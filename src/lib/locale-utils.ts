@@ -1,4 +1,4 @@
-import { Product } from '@/lib/api/typs';
+import { Product } from '@/lib/api/types';
 
 type LocaleConfig = {
   nameKey: 'uk' | 'us';

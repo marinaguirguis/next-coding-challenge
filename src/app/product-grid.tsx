@@ -3,7 +3,7 @@ import styles from './[locale]/page.module.css';
 import { useLocale } from 'next-intl';
 import { Link } from '@/i18n/routing';
 import { useCart } from './cart-context';
-import { Product } from '../lib/api/typs';
+import { Product } from '../lib/api/types';
 import { getProductName, getProductPrice, formatPrice } from '@/lib/locale-utils';
 
 function BasketItem({ count, name }: { count: number, name: string }) {

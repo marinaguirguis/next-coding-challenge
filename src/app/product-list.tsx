@@ -2,7 +2,7 @@
 
 import ProductGrid from './product-grid';
 import { useMoreProducts } from '@/lib/api/products.client';
-import { Product } from '../lib/api/typs';
+import { Product } from '../lib/api/types';
 
 interface Props {
   initialProducts: Product[];
