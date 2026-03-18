@@ -6,10 +6,9 @@ class ApiConfig {
     );
   }
 
-  // In dev, requests go through the Next.js rewrite proxy to avoid CORS.
-  // In production the API is on the same domain so we hit it directly.
+  // Client-side requests always go through the Next.js rewrite proxy to avoid CORS.
   get clientBaseUrl(): string {
-    return process.env.NODE_ENV === 'development' ? '/api-proxy' : this.baseUrl;
+    return '/api-proxy';
   }
 }
 

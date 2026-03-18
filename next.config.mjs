@@ -7,8 +7,6 @@ const EXTERNAL_API = 'https://v0-api-endpoint-request.vercel.app';
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   async rewrites() {
-    if (process.env.NODE_ENV !== 'development') return [];
-
     return [
       {
         source: '/api-proxy/:path*',
