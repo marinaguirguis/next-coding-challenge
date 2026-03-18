@@ -4,7 +4,6 @@ on:
   pull_request:
     branches:
       - main
-      - master
 
 jobs:
   test:
@@ -41,4 +40,4 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Run tests
-        run: pnpm test -- --ci --forceExit
+        run: pnpm exec jest --ci --forceExit
