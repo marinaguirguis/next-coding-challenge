@@ -10,7 +10,7 @@
 .description {
   display: inherit;
   justify-content: inherit;
-  align-items: inherit;
+  align-items: flex-start;
   font-size: 0.85rem;
   max-width: var(--max-width);
   width: 100%;
@@ -18,12 +18,6 @@
   font-family: var(--font-mono);
 }
 
-.description a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-}
 
 .description p {
   position: relative;
@@ -32,6 +26,13 @@
   background-color: rgba(var(--callout-rgb), 0.5);
   border: 1px solid rgba(var(--callout-border-rgb), 0.3);
   border-radius: var(--border-radius);
+}
+
+.cartSummary {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-end;
 }
 
 .grid {
@@ -92,17 +93,18 @@
 
 /* Mobile */
 @media (max-width: 700px) {
-  .content {
+  .main {
     padding: 4rem;
   }
 
   .grid {
     /* TODO Look up how to make a single column list*/
+    grid-template-columns: 1fr;
     margin-bottom: 120px;
     max-width: 320px;
     text-align: center;
   }
-
+  
   .basket,
   .card {
     padding: 1rem 2.5rem;
@@ -116,19 +118,15 @@
     font-size: 0.8rem;
   }
 
-  .description a {
-    padding: 1rem;
-  }
-
-  .description p,
-  .description div {
+  .title,
+  .description .cartSummary {
     display: flex;
     justify-content: center;
     position: fixed;
     width: 100%;
   }
 
-  .description p {
+  .title {
     align-items: center;
     inset: 0 0 auto;
     padding: 2rem 1rem 1.4rem;
@@ -144,9 +142,11 @@
     backdrop-filter: blur(24px);
   }
 
-  .description div {
-    align-items: flex-end;
-    pointer-events: none;
+  .description .cartSummary {
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    pointer-events: auto;
     inset: auto 0 0;
     padding: 2rem;
     height: 200px;
@@ -155,7 +155,7 @@
       transparent 0%,
       rgb(var(--background-end-rgb)) 40%
     );
-    z-index: 1;
+    z-index: 3;
   }
 }
 
@@ -163,5 +163,6 @@
 @media (min-width: 701px) and (max-width: 1120px) {
   .grid {
     /* TODO Look up how to make a 2 column list*/
+    grid-template-columns: 1fr 1fr;
   }
 }
