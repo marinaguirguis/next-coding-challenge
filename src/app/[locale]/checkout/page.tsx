@@ -1,9 +1,12 @@
 'use client';
-import Link from 'next/link';
-import { useCart } from '../cart-context';
+import { useLocale } from 'next-intl';
+import { Link } from '@/i18n/routing';
+import { useCart } from '../../cart-context';
+import { formatPrice } from '@/lib/locale-utils';
 import styles from './checkout.module.css';
 
 export default function Checkout() {
+  const locale = useLocale();
   const { cartItems, totalItemsCount } = useCart();
 
   const totalPrice = cartItems.reduce((sum, item) => {
@@ -40,10 +43,10 @@ export default function Checkout() {
                     <td className={styles.tdItem}>{item.name}</td>
                     <td className={styles.tdNum}>{item.quantity}</td>
                     <td className={styles.tdNum}>
-                      {item.price != null ? `£${item.price}` : '—'}
+                      {item.price != null ? formatPrice(item.price, locale) : '—'}
                     </td>
                     <td className={styles.tdNum}>
-                      {item.price != null ? `£${(item.price * item.quantity)}` : '—'}
+                      {item.price != null ? formatPrice(item.price * item.quantity, locale) : '—'}
                     </td>
                   </tr>
                 ))}
@@ -58,7 +61,7 @@ export default function Checkout() {
               {totalPrice > 0 && (
                 <div className={`${styles.totalRow} ${styles.totalPriceRow}`}>
                   <span>Total price</span>
-                  <span className={styles.totalValue}>£{totalPrice}</span>
+                  <span className={styles.totalValue}>{formatPrice(totalPrice, locale)}</span>
                 </div>
               )}
             </div>

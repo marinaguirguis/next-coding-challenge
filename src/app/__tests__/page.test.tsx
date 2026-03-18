@@ -1,6 +1,14 @@
 import { act, fireEvent, render, screen } from '@testing-library/react';
-import Home from '@/app/page';
+import Home from '@/app/[locale]/page';
 import { CartProvider } from '@/app/cart-context';
+
+jest.mock('next-intl', () => ({
+    useLocale: () => 'uk',
+}));
+
+jest.mock('@/i18n/routing', () => ({
+    Link: ({ href, children, ...props }: any) => <a href={href} {...props}>{children}</a>,
+}));
 
 jest.mock('@/lib/api/products.server', () => ({
     getProducts: jest.fn().mockResolvedValue({
