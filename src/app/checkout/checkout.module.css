@@ -1,0 +1,148 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.25rem 2rem;
+  border-bottom: 1px solid rgba(var(--callout-border-rgb), 0.25);
+}
+
+.backLink {
+  font-size: 0.875rem;
+  opacity: 0.55;
+  transition: opacity 150ms;
+}
+
+.backLink:hover {
+  opacity: 1;
+}
+
+.heading {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.main {
+  flex: 1;
+  padding: 2.5rem 2rem;
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 4rem 0;
+  text-align: center;
+  opacity: 0.65;
+}
+
+.browseBtn {
+  padding: 0.55rem 1.25rem;
+  border-radius: 999px;
+  background: rgb(var(--foreground-rgb));
+  color: rgb(var(--background-end-rgb));
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 150ms;
+}
+
+.browseBtn:hover {
+  opacity: 0.8;
+}
+
+.summaryCard {
+  border: 1px solid rgba(var(--callout-border-rgb), 0.3);
+  border-radius: var(--border-radius);
+  background: rgba(var(--callout-rgb), 0.3);
+  overflow: hidden;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.table thead {
+  background: rgba(var(--callout-rgb), 0.5);
+  border-bottom: 1px solid rgba(var(--callout-border-rgb), 0.3);
+}
+
+.thItem, .thNum {
+  padding: 0.75rem 1.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.55;
+}
+
+.thItem { text-align: left; }
+.thNum  { text-align: right; }
+
+.row {
+  border-bottom: 1px solid rgba(var(--callout-border-rgb), 0.15);
+}
+
+.row:last-child { border-bottom: none; }
+
+.tdItem, .tdNum { padding: 0.9rem 1.25rem; }
+.tdItem { font-weight: 500; }
+.tdNum  { text-align: right; font-variant-numeric: tabular-nums; }
+
+.totals {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1rem 1.25rem;
+  border-top: 1px solid rgba(var(--callout-border-rgb), 0.25);
+}
+
+.totalRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  opacity: 0.65;
+}
+
+.totalPriceRow {
+  font-size: 1rem;
+  font-weight: 700;
+  opacity: 1;
+}
+
+.placeOrderBtn {
+  display: block;
+  width: calc(100% - 2.5rem);
+  margin: 1.25rem;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 999px;
+  background: rgb(var(--foreground-rgb));
+  color: rgb(var(--background-end-rgb));
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 150ms;
+}
+
+.placeOrderBtn:hover { opacity: 0.8; }
+
+@media (max-width: 600px) {
+  .header { padding: 1rem; }
+  .main   { padding: 1.5rem 1rem; }
+
+  .thNum:nth-child(3),
+  .tdNum:nth-child(3) { display: none; }
+}

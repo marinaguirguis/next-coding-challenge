@@ -72,6 +72,22 @@
   max-width: 30ch;
 }
 
+.checkoutLink {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  border-radius: 999px;
+  background: rgb(var(--foreground-rgb));
+  color: rgb(var(--background-end-rgb));
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 150ms;
+}
+
+.checkoutLink:hover {
+  opacity: 0.75;
+}
+
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   .basket:hover,
