@@ -1,33 +1,32 @@
 'use client';
 import { createContext, useCallback, useContext, useMemo, useState } from 'react';
 
-type CartItem = { name: string; quantity: number; price: number };
+type CartItem = { id: number; name: string; quantity: number; price: number };
 
 type CartContextType = {
   cartItems: CartItem[];
   totalItemsCount: number;
-  addToCart: (product: string, price: number) => void;
+  addToCart: (id: number, name: string, price: number) => void;
 };
 
 const CartContext = createContext<CartContextType | null>(null);
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
-
   const totalItemsCount = useMemo(
     () => cartItems.reduce((sum, item) => sum + item.quantity, 0),
     [cartItems]
   );
 
-  const addToCart = useCallback((product: string, price: number) => {
+  const addToCart = useCallback((id: number, name: string, price: number) => {
     setCartItems(prev => {
-      const existing = prev.find(item => item.name === product);
+      const existing = prev.find(item => item.id === id);
       if (existing) {
         return prev.map(item =>
-          item.name === product ? { ...item, quantity: item.quantity + 1 } : item
+          item.id === id ? { ...item, quantity: item.quantity + 1 } : item
         );
       }
-      return [...prev, { name: product, quantity: 1, price }];
+      return [...prev, { id, name, quantity: 1, price }];
     });
   }, []);
 

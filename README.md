@@ -14,6 +14,8 @@
 
 - To have a theme for the product and not magic numbers in the css.
 
+Note, I decided to dedupe the additional products with the pre-fetched products using the product id, so you might find that no new products are rendered after the additional request. 
+
 
 ## The Challenge:
 

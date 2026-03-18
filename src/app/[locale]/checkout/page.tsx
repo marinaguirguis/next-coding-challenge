@@ -39,7 +39,7 @@ export default function Checkout() {
               </thead>
               <tbody>
                 {cartItems.map(item => (
-                  <tr key={item.name} className={styles.row}>
+                  <tr key={item.id} className={styles.row}>
                     <td className={styles.tdItem}>{item.name}</td>
                     <td className={styles.tdNum}>{item.quantity}</td>
                     <td className={styles.tdNum}>

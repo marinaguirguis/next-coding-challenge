@@ -41,8 +41,8 @@ describe('Checkout', () => {
     it('renders cart items with correct data and total price for UK locale', () => {
         mockUseCart.mockReturnValue({
             cartItems: [
-                { name: 'Silk Blouse', price: 85.00, quantity: 2 },
-                { name: 'Linen Trousers', price: 60.00, quantity: 3 },
+                { id: 1, name: 'Silk Blouse', price: 85.00, quantity: 2 },
+                { id: 2, name: 'Linen Trousers', price: 60.00, quantity: 3 },
             ],
             totalItemsCount: 5,
             addToCart: jest.fn(),
@@ -77,8 +77,8 @@ describe('Checkout', () => {
 
         mockUseCart.mockReturnValue({
             cartItems: [
-                { name: 'Silk Blouse', price: 105.00, quantity: 2 },
-                { name: 'Linen Trousers', price: 75.00, quantity: 3 },
+                { id: 1, name: 'Silk Blouse', price: 105.00, quantity: 2 },
+                { id: 2, name: 'Linen Trousers', price: 75.00, quantity: 3 },
             ],
             totalItemsCount: 5,
             addToCart: jest.fn(),

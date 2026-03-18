@@ -44,10 +44,10 @@ describe('Home', () => {
             name: /Basket:/i,
         });
 
-        const basketItem1Count = screen.queryByTestId('item-count-Item 1');
-        const basketItem2Count = screen.queryByTestId('item-count-Item 2');
-        const basketItem3Count = screen.queryByTestId('item-count-Item 3');
-        const basketItem4Count = screen.queryByTestId('item-count-Item 4');
+        const basketItem1Count = screen.queryByTestId('item-count-1');
+        const basketItem2Count = screen.queryByTestId('item-count-2');
+        const basketItem3Count = screen.queryByTestId('item-count-3');
+        const basketItem4Count = screen.queryByTestId('item-count-4');
 
         expect(basketButton).toHaveTextContent('Basket: 0 items');
         expect(basketItem1Count).toBeNull();
@@ -69,10 +69,10 @@ describe('Home', () => {
         const basketButton = screen.getByRole('button', {
             name: /Basket:/i,
         });
-        const basketItem1Count = screen.getByTestId('item-count-Item 1');
-        const basketItem2Count = screen.queryByTestId('item-count-Item 2');
-        const basketItem3Count = screen.queryByTestId('item-count-Item 3');
-        const basketItem4Count = screen.queryByTestId('item-count-Item 4');
+        const basketItem1Count = screen.getByTestId('item-count-1');
+        const basketItem2Count = screen.queryByTestId('item-count-2');
+        const basketItem3Count = screen.queryByTestId('item-count-3');
+        const basketItem4Count = screen.queryByTestId('item-count-4');
 
         expect(basketButton).toHaveTextContent(/Basket: 1 item$/);
         expect(basketItem1Count).toHaveTextContent('Item 1 count: 1');
@@ -97,10 +97,10 @@ describe('Home', () => {
         const basketButton = screen.getByRole('button', {
             name: /Basket:/i,
         });
-        const basketItem1Count = screen.getByTestId('item-count-Item 1');
-        const basketItem2Count = screen.getByTestId('item-count-Item 2');
-        const basketItem3Count = screen.queryByTestId('item-count-Item 3');
-        const basketItem4Count = screen.queryByTestId('item-count-Item 4');
+        const basketItem1Count = screen.getByTestId('item-count-1');
+        const basketItem2Count = screen.getByTestId('item-count-2');
+        const basketItem3Count = screen.queryByTestId('item-count-3');
+        const basketItem4Count = screen.queryByTestId('item-count-4');
 
         expect(basketButton).toHaveTextContent(/Basket: 3 items$/);
         expect(basketItem1Count).toHaveTextContent('Item 1 count: 1');

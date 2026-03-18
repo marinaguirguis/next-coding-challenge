@@ -6,8 +6,8 @@ import { useCart } from './cart-context';
 import { Product } from '../lib/api/types';
 import { getProductName, getProductPrice, formatPrice } from '@/lib/locale-utils';
 
-function BasketItem({ count, name }: { count: number, name: string }) {
-  return <div data-testid={`item-count-${name}`}>{name} count: {count}</div>
+function BasketItem({ count, name, id }: { count: number, name: string, id: number }) {
+  return <div data-testid={`item-count-${id}`}><span>{name}</span><span> count: </span><span>{count}</span></div>
 }
 
 export default function ProductGrid({ products }: { products: Product[] }) {
@@ -21,8 +21,8 @@ export default function ProductGrid({ products }: { products: Product[] }) {
           Michael&apos;s Amazing Web Store
         </p>
         <div className={styles.cartSummary}>
-          <button className={styles.basket}>Basket: {totalItemsCount} {totalItemsCount === 1 ? 'item' : 'items'}</button>
-          {cartItems.map(item => <BasketItem key={item.name} name={item.name} count={item.quantity} />)}
+          <button className={styles.basket}><span>Basket: </span><span>{totalItemsCount}</span><span> {totalItemsCount === 1 ? 'item' : 'items'}</span></button>
+          {cartItems.map(item => <BasketItem key={item.id} id={item.id} name={item.name} count={item.quantity} />)}
           {totalItemsCount > 0 && (
             <Link href="/checkout" className={styles.checkoutLink}>Checkout →</Link>
           )}
@@ -34,9 +34,9 @@ export default function ProductGrid({ products }: { products: Product[] }) {
           const name = getProductName(product, locale);
           const price = getProductPrice(product, locale);
           return (
-            <button key={name} className={styles.card} onClick={() => addToCart(name, price)} aria-label="Add to basket">
-              <h2>{name} <span>-&gt;</span></h2>
-              <p>{formatPrice(price, locale)}</p>
+            <button key={product.id} className={styles.card} onClick={() => addToCart(product.id, name, price)} aria-label="Add to basket">
+              <h2><span>{name}</span> <span>-&gt;</span></h2>
+              <p><span>{formatPrice(price, locale)}</span></p>
             </button>
           );
         })}
